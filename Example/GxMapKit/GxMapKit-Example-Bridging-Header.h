@@ -9,7 +9,8 @@
 #ifndef GxMapKit_Example_Bridging_Header_h
 #define GxMapKit_Example_Bridging_Header_h
 
-#import <BaiduMap_Api/>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
 
 
 #endif /* GxMapKit_Example_Bridging_Header_h */

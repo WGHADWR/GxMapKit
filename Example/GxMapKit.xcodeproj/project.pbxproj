@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11017D641902D3F77F8E0036 /* GxMapKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = GxMapKit.podspec; path = ../GxMapKit.podspec; sourceTree = "<group>"; };
-		1AEE7F25F21F9A567FDC2AE7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		11017D641902D3F77F8E0036 /* GxMapKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GxMapKit.podspec; path = ../GxMapKit.podspec; sourceTree = "<group>"; };
+		1AEE7F25F21F9A567FDC2AE7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1B5C7F28A17936C00298112B /* Pods-GxMapKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GxMapKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-GxMapKit_Tests/Pods-GxMapKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3701E2F85C3070313DB9A5E2 /* Pods_GxMapKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GxMapKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3853CFDD1F7BD1719CAFECD7 /* Pods-GxMapKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GxMapKit_Example.release.xcconfig"; path = "Target Support Files/Pods-GxMapKit_Example/Pods-GxMapKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,7 +46,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		C894F041BCB395AF12134424 /* Pods-GxMapKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GxMapKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-GxMapKit_Tests/Pods-GxMapKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E788298516F3184110915B40 /* Pods_GxMapKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GxMapKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F19908EB63933370F88348AF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F19908EB63933370F88348AF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F99EE27A22814FFD00353736 /* GxMapKit-Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GxMapKit-Example-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +78,6 @@
 				C894F041BCB395AF12134424 /* Pods-GxMapKit_Tests.debug.xcconfig */,
 				1B5C7F28A17936C00298112B /* Pods-GxMapKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -111,6 +111,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				F99EE27A22814FFD00353736 /* GxMapKit-Example-Bridging-Header.h */,
 			);
 			name = "Example for GxMapKit";
 			path = GxMapKit;
@@ -227,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -487,6 +489,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/GxMapKit-Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -502,6 +505,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/GxMapKit-Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

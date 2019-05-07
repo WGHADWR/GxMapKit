@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.name             = 'GxMapKit'
   s.version          = '0.1.0'
   s.summary          = 'A short description of GxMapKit.'
+	s.swift_version = '4.2'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -39,4 +40,18 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+	
+	s.subspec 'BaiduMapKit' do |ss|
+		# ss.source_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		# ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		
+		ss.frameworks   =  'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony'
+		ss.libraries    = 'sqlite3.0', 'stdc++'
+		
+		ss.vendored_frameworks =  'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework'
+		ss.vendored_libraries = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a'
+		
+		ss.preserve_paths = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework', 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a'
+		ss.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/' }
+	end
 end

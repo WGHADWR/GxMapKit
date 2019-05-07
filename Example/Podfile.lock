@@ -1,0 +1,16 @@
+PODS:
+  - GxMapKit (0.1.0)
+
+DEPENDENCIES:
+  - GxMapKit (from `../`)
+
+EXTERNAL SOURCES:
+  GxMapKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GxMapKit: 341f1aef5c98dfb173df872bf3b4e04c9f3cec15
+
+PODFILE CHECKSUM: 75c0dd3bebacb8efe62f5e7f3f253825cac0fb1c
+
+COCOAPODS: 1.6.1

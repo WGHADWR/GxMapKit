@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11017D641902D3F77F8E0036 /* GxMapKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GxMapKit.podspec; path = ../GxMapKit.podspec; sourceTree = "<group>"; };
+		11017D641902D3F77F8E0036 /* GxMapKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GxMapKit.podspec; path = ../GxMapKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1AEE7F25F21F9A567FDC2AE7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1B5C7F28A17936C00298112B /* Pods-GxMapKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GxMapKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-GxMapKit_Tests/Pods-GxMapKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3701E2F85C3070313DB9A5E2 /* Pods_GxMapKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GxMapKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };

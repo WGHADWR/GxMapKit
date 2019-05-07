@@ -4,7 +4,7 @@
   "summary": "A short description of GxMapKit.",
   "swift_version": "4.2",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/wghadwr@gmail.com/GxMapKit",
+  "homepage": "https://github.com/WGHADWR/GxMapKit",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -13,7 +13,7 @@
     "wghadwr@gmail.com": "wghadwr@gmail.com"
   },
   "source": {
-    "git": "https://github.com/wghadwr/GxMapKit.git",
+    "git": "https://github.com/WGHADWR/GxMapKit.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -29,8 +29,6 @@
   "subspecs": [
     {
       "name": "BaiduMapKit",
-      "source_files": "GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h",
-      "public_header_files": "GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h",
       "frameworks": [
         "CoreLocation",
         "QuartzCore",

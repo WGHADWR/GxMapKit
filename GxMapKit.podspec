@@ -22,11 +22,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/wghadwr@gmail.com/GxMapKit'
+  s.homepage         = 'https://github.com/WGHADWR/GxMapKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'wghadwr@gmail.com' => 'wghadwr@gmail.com' }
-  s.source           = { :git => 'https://github.com/wghadwr/GxMapKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/WGHADWR/GxMapKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
@@ -42,8 +42,8 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
 	
 	s.subspec 'BaiduMapKit' do |ss|
-		ss.source_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
-		ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		# ss.source_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		# ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
 		
 		ss.frameworks   =  'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony'
 		ss.libraries    = 'sqlite3.0', 'c++'

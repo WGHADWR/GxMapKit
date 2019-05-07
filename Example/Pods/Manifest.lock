@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GxMapKit: 5391f7a4856bac0f584f4071fa5df96715d394c2
+  GxMapKit: 21d5d06e4668eacdacde8e0651acb9e59b08aa30
 
 PODFILE CHECKSUM: 75c0dd3bebacb8efe62f5e7f3f253825cac0fb1c
 

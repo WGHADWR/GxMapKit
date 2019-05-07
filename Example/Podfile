@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GxMapKit_Example' do
+  pod 'GxMapKit', :path => '../'
+
+  target 'GxMapKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

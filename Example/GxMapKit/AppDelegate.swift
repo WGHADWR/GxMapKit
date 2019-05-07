@@ -8,14 +8,28 @@
 
 import UIKit
 
+import GxMapKit
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
 
     var window: UIWindow?
 
+	var _mapManager: BMKMapManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+		
+//		self.mapManager = MapViewController.getMapManager(key: "o0PdgT1a7922KZgRO7V35GGY5qAb4t13", delegate: self)
+		_mapManager = BMKMapManager()
+		// 如果要关注网络及授权验证事件，请设定generalDelegate参数
+//		let ret = _mapManager?.start("o0PdgT1a7922KZgRO7V35GGY5qAb4t13",
+//									 generalDelegate: self)
+//		if ret == false {
+//			NSLog("manager start failed!")
+//		}
+		// print("MapManager: \(mapManager == nil)")
+		
         return true
     }
 

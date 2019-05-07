@@ -1,5 +1,7 @@
 PODS:
-  - GxMapKit (0.1.0)
+  - GxMapKit (0.1.0):
+    - GxMapKit/BaiduMapKit (= 0.1.0)
+  - GxMapKit/BaiduMapKit (0.1.0)
 
 DEPENDENCIES:
   - GxMapKit (from `../`)
@@ -9,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GxMapKit: 341f1aef5c98dfb173df872bf3b4e04c9f3cec15
+  GxMapKit: b83a650370eb035c6dd2cc4e65e0a095fc2a5bda
 
 PODFILE CHECKSUM: 75c0dd3bebacb8efe62f5e7f3f253825cac0fb1c
 

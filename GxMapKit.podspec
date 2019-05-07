@@ -42,8 +42,8 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
 	
 	s.subspec 'BaiduMapKit' do |ss|
-		# ss.source_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
-		# ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		ss.source_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
+		ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
 		
 		ss.frameworks   =  'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony'
 		ss.libraries    = 'sqlite3.0', 'stdc++'
@@ -54,4 +54,45 @@ TODO: Add long description of the pod here.
 		ss.preserve_paths = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework', 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a'
 		ss.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/' }
 	end
+	
+	s.prepare_command = <<-EOF
+	# 业务Module
+	rm -rf GxMapKit/Classes/Modules
+	mkdir GxMapKit/Classes/Modules
+	touch GxMapKit/Classes/Modules/module.modulemap
+	cat <<-EOF > GxMapKit/Classes/Modules/module.modulemap
+	framework module Verify {
+		umbrella header "GxMapKit.h"
+		export *
+		link "sqlite3.0"
+		link "stdc++"
+	}
+	\EOF
+	
+	# 创建Base Module
+	rm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules
+	mkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules
+	touch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap
+	cat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap
+	framework module BaiduMapAPI_Base {
+		umbrella header "BMKBaseComponent.h"
+		export *
+		link "sqlite3.0"
+		link "stdc++"
+	}
+	\EOF
+	
+	# 创建Map Module
+	rm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules
+	mkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules
+	touch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap
+	cat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap
+	framework module BaiduMapAPI_Map {
+		umbrella header "BMKMapComponent.h"
+		export *
+		link "sqlite3.0"
+		link "stdc++"
+	}
+	\EOF
+	EOF
 end

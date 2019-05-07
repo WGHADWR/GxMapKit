@@ -20,7 +20,12 @@
     "ios": "8.0"
   },
   "source_files": "GxMapKit/Classes/**/*",
-  "prepare_command": "# 业务Module\nrm -rf GxMapKit/Classes/Modules\nmkdir GxMapKit/Classes/Modules\ntouch GxMapKit/Classes/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Classes/Modules/module.modulemap\nframework module Verify {\n\tumbrella header \"GxMapKit.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"stdc++\"\n}\nEOF\n\n# 创建Base Module\nrm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules\nmkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules\ntouch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Base {\n\tumbrella header \"BMKBaseComponent.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"stdc++\"\n}\nEOF\n\n# 创建Map Module\nrm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules\nmkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules\ntouch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Map {\n\tumbrella header \"BMKMapComponent.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"stdc++\"\n}\nEOF",
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers",
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "prepare_command": "# 业务Module\nrm -rf GxMapKit/Classes/Modules\nmkdir GxMapKit/Classes/Modules\ntouch GxMapKit/Classes/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Classes/Modules/module.modulemap\nframework module Verify {\n\tumbrella header \"GxMapKit.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"c++\"\n}\nEOF\n\n# 创建Base Module\nrm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules\nmkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules\ntouch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Base.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Base {\n\tumbrella header \"BMKBaseComponent.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"c++\"\n}\nEOF\n\n# 创建Map Module\nrm -rf GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules\nmkdir GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules\ntouch GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap\ncat <<-EOF > GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Map {\n\tumbrella header \"BMKMapComponent.h\"\n\texport *\n\tlink \"sqlite3.0\"\n\tlink \"c++\"\n}\nEOF",
   "subspecs": [
     {
       "name": "BaiduMapKit",
@@ -37,17 +42,15 @@
       ],
       "libraries": [
         "sqlite3.0",
-        "stdc++"
+        "c++"
       ],
       "vendored_frameworks": "GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework",
       "vendored_libraries": "GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a",
+      "resources": "GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/mapapi.bundle",
       "preserve_paths": [
         "GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework",
         "GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a"
-      ],
-      "pod_target_xcconfig": {
-        "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/"
-      }
+      ]
     }
   ]
 }

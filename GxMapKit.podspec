@@ -46,13 +46,20 @@ TODO: Add long description of the pod here.
 		ss.public_header_files = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers/**.h'
 		
 		ss.frameworks   =  'CoreLocation', 'QuartzCore', 'OpenGLES', 'SystemConfiguration', 'CoreGraphics', 'Security', 'CoreTelephony'
-		ss.libraries    = 'sqlite3.0', 'stdc++'
+		ss.libraries    = 'sqlite3.0', 'c++'
 		
 		ss.vendored_frameworks =  'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework'
 		ss.vendored_libraries = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a'
 		
+		ss.resources = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/BaiduMapAPI_Map.framework/mapapi.bundle'
+		
 		ss.preserve_paths = 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework', 'GxMapKit/Library/BaiduMap_IOSSDK_Lib/thirdlibs/*.a'
-		ss.pod_target_xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/' }
+		s.pod_target_xcconfig = {
+			#'FRAMEWORK_SEARCH_PATHS' => '${PODS_ROOT}/GxMapKit/Library/BaiduMap_IOSSDK_Lib',
+			'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/*.framework/Headers',
+			'LD_RUNPATH_SEARCH_PATHS' => '$(PODS_ROOT)/GxMapKit/Library/BaiduMap_IOSSDK_Lib/',
+			'OTHER_LDFLAGS' => '-ObjC'
+		}
 	end
 	
 	s.prepare_command = <<-EOF
@@ -65,7 +72,7 @@ TODO: Add long description of the pod here.
 		umbrella header "GxMapKit.h"
 		export *
 		link "sqlite3.0"
-		link "stdc++"
+		link "c++"
 	}
 	\EOF
 	
@@ -78,7 +85,7 @@ TODO: Add long description of the pod here.
 		umbrella header "BMKBaseComponent.h"
 		export *
 		link "sqlite3.0"
-		link "stdc++"
+		link "c++"
 	}
 	\EOF
 	
@@ -91,7 +98,7 @@ TODO: Add long description of the pod here.
 		umbrella header "BMKMapComponent.h"
 		export *
 		link "sqlite3.0"
-		link "stdc++"
+		link "c++"
 	}
 	\EOF
 	EOF

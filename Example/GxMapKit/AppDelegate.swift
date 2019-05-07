@@ -9,6 +9,8 @@
 import UIKit
 
 import GxMapKit
+import BaiduMapAPI_Map
+import BaiduMapAPI_Map
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
@@ -23,12 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
 //		self.mapManager = MapViewController.getMapManager(key: "o0PdgT1a7922KZgRO7V35GGY5qAb4t13", delegate: self)
 		_mapManager = BMKMapManager()
 		// 如果要关注网络及授权验证事件，请设定generalDelegate参数
-//		let ret = _mapManager?.start("o0PdgT1a7922KZgRO7V35GGY5qAb4t13",
-//									 generalDelegate: self)
-//		if ret == false {
-//			NSLog("manager start failed!")
-//		}
-		// print("MapManager: \(mapManager == nil)")
+		let ret = _mapManager?.start("o0PdgT1a7922KZgRO7V35GGY5qAb4t13",
+										  generalDelegate: self)
+		if ret == false {
+			NSLog("manager start failed!")
+		}
+		
+		let mapView = MapViewController()
+		let navigation = UINavigationController()
+		navigation.pushViewController(mapView, animated: true)
+		self.window?.rootViewController = navigation
+		window?.makeKeyAndVisible()
 		
         return true
     }
@@ -55,6 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+	func onGetNetworkState(_ iError: Int32) {
+		if 0 == iError {
+			NSLog("联网成功")
+		} else {
+			NSLog("联网失败，错误代码：Error\(iError)")
+		}
+	}
+	
+	func onGetPermissionState(_ iError: Int32) {
+		if 0 == iError {
+			NSLog("授权成功")
+		} else {
+			NSLog("授权失败，错误代码\(iError)")
+		}
+	}
 }
 
